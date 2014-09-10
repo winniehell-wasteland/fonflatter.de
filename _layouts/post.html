@@ -308,8 +308,13 @@
 					<p class="nav-next"><a href="http://www.fonflatter.de/2014/09/10/3277-schweigen/" rel="next">#3277: Schweigen &raquo;</a></p>
 				</div>
 				<h2><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></h2>
-				<p class="post_date">{{ post.date | date_to_string }}</p>
+{% assign date = post.date | date_to_xmlschema | split: 'T' | first %}
+{% assign year = date | split: '-' | first %}
+				<p class="post_date">{{ date }}</p>
 				<p>
+<a href="http://www.fonflatter.de/{{ year }}/fred_{{ date }}.png">
+	<img src="http://www.fonflatter.de/{{ year }}/fred_{{ date }}_s.png" title="{{ page.title }} -- Er redet Quak den ganzen Tag." />
+</a>
 {{ content }}
 				</p>
 				<p>Heute ist <span style="font-weight:bold;">Tag des Comiczeichners</span>.</p>
